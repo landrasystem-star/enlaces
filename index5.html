@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Enlaces</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+
+        body {
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+        body::before {
+            width: 300px; height: 300px;
+            background: #25D366;
+            top: -100px; left: -100px;
+        }
+        body::after {
+            width: 300px; height: 300px;
+            background: #FF0000;
+            bottom: -100px; right: -100px;
+        }
+
+        .contenedor {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            animation: aparecer 0.6s ease-out;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .boton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 14px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .boton::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.5s;
+        }
+
+        .boton:hover::before { left: 100%; }
+
+        .boton:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .boton:active { transform: translateY(-1px) scale(0.99); }
+
+        .boton svg {
+            width: 26px; height: 26px;
+            fill: #fff;
+            flex-shrink: 0;
+        }
+
+        .whatsapp  { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .tiktok    { background: linear-gradient(135deg, #000000, #25F4EE, #FE2C55); }
+        .facebook  { background: linear-gradient(135deg, #1877F2, #0C5DC7); }
+        .gmail     { background: linear-gradient(135deg, #EA4335, #C5221F); }
+        .youtube   { background: linear-gradient(135deg, #FF0000, #CC0000); }
+        .instagram { background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045); }
+        .twitter   { background: linear-gradient(135deg, #000000, #1a1a1a); }
+        .web       { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>🌐 Mis Enlaces</h1>
+
+        <!-- WhatsApp -->
+        <a class="boton whatsapp"
+           href="https://web.whatsapp.com/"
+           onclick="return abrirApp(event, 'whatsapp://')">
+            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.88 11.88 0 0 0 12.04 0C5.46 0 .1 5.36.1 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.9 11.9 0 0 0 5.79 1.48h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.47-8.42zM12.05 21.8h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.82 9.82 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.88-9.87 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.98c0 5.45-4.43 9.88-9.88 9.88z"/></svg>
+            WhatsApp
+        </a>
+
+        <!-- TikTok -->
+        <a class="boton tiktok"
+           href="https://www.tiktok.com/"
+           onclick="return abrirApp(event, 'snssdk1233://')">
+            <svg viewBox="0 0 24 24"><path d="M12.9 0h3.03c.22 1.79 1.28 3.28 2.9 3.9.5.19 1.03.3 1.57.32v3.03a7.9 7.9 0 0 1-4.5-1.4v6.9a6.85 6.85 0 1 1-6.85-6.85c.16 0 .32.01.48.02v3.16a3.7 3.7 0 1 0 2.6 3.54V0z"/></svg>
+            TikTok
+        </a>
+
+        <!-- Facebook -->
+        <a class="boton facebook"
+           href="https://www.facebook.com/"
+           onclick="return abrirApp(event, 'fb://')">
+            <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+            Facebook
+        </a>
+
+        <!-- Instagram -->
+        <a class="boton instagram"
+           href="https://www.instagram.com/"
+           onclick="return abrirApp(event, 'instagram://')">
+            <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+            Instagram
+        </a>
+
+        <!-- Twitter / X -->
+        <a class="boton twitter"
+           href="https://twitter.com/"
+           onclick="return abrirApp(event, 'twitter://')">
+            <svg viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.3 19.5h2.04L6.48 3.24H4.3l13.3 17.41z"/></svg>
+            Twitter / X
+        </a>
+
+        <!-- Gmail -->
+        <a class="boton gmail"
+           href="https://mail.google.com/"
+           onclick="return abrirApp(event, 'googlegmail://')">
+            <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+            Gmail
+        </a>
+
+        <!-- YouTube -->
+        <a class="boton youtube"
+           href="https://www.youtube.com/"
+           onclick="return abrirApp(event, 'youtube://')">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+            YouTube
+        </a>
+
+        <!-- Tu web (esta siempre abre en el navegador, no hay app) -->
+        <a class="boton web" href="https://tuweb.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm7.94 7h-3.4a15.6 15.6 0 0 0-1.4-3.62A9.98 9.98 0 0 1 19.94 7zM12 2.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82A15.6 15.6 0 0 1 12 2.04zM2.06 13A9.9 9.9 0 0 1 2 12c0-.34.02-.67.06-1h3.85a17.3 17.3 0 0 0 .08 1c-.02.33-.05.66-.08 1H2.06zm.9 2h3.4c.34 1.27.81 2.5 1.4 3.62A10 10 0 0 1 2.96 15zm3.4-8h-3.4a10 10 0 0 1 4.8-3.62A15.6 15.6 0 0 0 6.36 7zM12 21.96a15.7 15.7 0 0 1-1.91-3.96h3.82A15.7 15.7 0 0 1 12 21.96zM14.26 16H9.74a13.2 13.2 0 0 1-.72-4c0-1.4.26-2.74.72-4h4.52c.46 1.26.72 2.6.72 4s-.26 2.74-.72 4zm.98 5.62c.59-1.12 1.06-2.35 1.4-3.62h3.4a10 10 0 0 1-4.8 3.62zM17.66 16c.34-1.27.55-2.61.63-4-.08-1.39-.29-2.73-.63-4h3.4c.31 1.28.51 2.6.51 4s-.2 2.72-.51 4h-3.4z"/></svg>
+            Mi Web
+        </a>
+    </div>
+
+    <!-- Script: en móvil abre la app nativa, en PC abre la web -->
+    <script>
+        function abrirApp(e, esquema) {
+            const esMovil = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
+
+            if (esMovil) {
+                e.preventDefault();
+                window.location.href = esquema;
+                return false;
+            }
+
+            // En PC: deja que el href abra la web normal
+            return true;
+        }
+    </script>
+
+</body>
+</html>
